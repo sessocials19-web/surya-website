@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo:  YOUR_GITHUB_USERNAME/surya-website  # ← change
+  branch: main
+
+publish_mode: editorial_workflow
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home"
+        name: "home"
+        file: "content/home.md"
+        fields:
+          - {label: Hero Title, name: hero_title, widget: string, default: "Unlock the Power of the Sun"}
+          - {label: Hero Subtitle, name: hero_subtitle, widget: text}
+          - {label: Call-to-action Button, name: cta_text, widget: string, default: "Request a Free Site Visit"}
+          - {label: About Us, name: about, widget: markdown}
+          - {label: Phone, name: phone, widget: string}
+          - {label: Email, name: email, widget: string}
+          - {label: Office Address, name: office, widget: text}
+
+  - name: "packages"
+    label: "Residential Packages"
+    folder: "content/packages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Capacity, name: capacity, widget: string}
+      - {label: Description, name: description, widget: text}
+      - {label: Features, name: features, widget: list}
+      - {label: Savings, name: savings, widget: string}
